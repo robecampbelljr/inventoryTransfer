@@ -129,6 +129,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+campbell_library_inventory.xlsx
+db_connect.py
 
 # Spyder project settings
 .spyderproject
