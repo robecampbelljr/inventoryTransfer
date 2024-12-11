@@ -112,6 +112,8 @@ for row in sheet.iter_rows(min_row=2, max_col=7, values_only=True):
                 author_list.append({"name": f"{new_author}", "id": f"{author_id}"})
         elif author_present:
             author_id = author_present["id"]
+            cur.execute(insert_book_authors, (book_id, author_id))
+            conn.commit()
     except psycopg2.Error as e:
         print(f"An error occurred while inserting: {e}")
         conn.rollback()  # Rollback on error
