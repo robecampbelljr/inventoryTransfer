@@ -46,7 +46,6 @@ for row in sheet.iter_rows(min_row=2, max_col=7, values_only=True):
             illustrator_id = cur.fetchone()[0]
             conn.commit()
             illustrator_list.append({"name": f"{illustrator}", "id": f"{illustrator_id}"})
-            print(f"Illustrator: {illustrator} - {illustrator_id}")
         elif illustrator_present:
             illustrator_id = illustrator_present["id"]
     except psycopg2.Error as e:
@@ -60,7 +59,6 @@ for row in sheet.iter_rows(min_row=2, max_col=7, values_only=True):
             bookType_id = cur.fetchone()[0]
             conn.commit()
             bookType_list.append({"name": f"{bookType}", "id": f"{bookType_id}"})
-            print(f"bookType: {bookType} - {bookType_id}")
         elif bookType_present:
             bookType_id = bookType_present["id"]
     except psycopg2.Error as e:
@@ -74,7 +72,6 @@ for row in sheet.iter_rows(min_row=2, max_col=7, values_only=True):
             category_id = cur.fetchone()[0]
             conn.commit()
             category_list.append({"name": f"{category}", "id": f"{category_id}"})
-            print(f"category: {category} - {category_id}")
         elif category_present:
             category_id = category_present["id"]
     except psycopg2.Error as e:
@@ -88,7 +85,6 @@ for row in sheet.iter_rows(min_row=2, max_col=7, values_only=True):
             subject_id = cur.fetchone()[0]
             conn.commit()
             subject_list.append({"name": f"{subject}", "id": f"{subject_id}"})
-            print(f"subject: {subject} - {subject_id}")
         elif subject_present:
             subject_id = subject_present["id"]
     except psycopg2.Error as e:
@@ -114,7 +110,6 @@ for row in sheet.iter_rows(min_row=2, max_col=7, values_only=True):
                 cur.execute(insert_book_authors, (book_id, author_id))
                 conn.commit()
                 author_list.append({"name": f"{new_author}", "id": f"{author_id}"})
-                print(f"Author: {new_author} - {author_id} - Book ID: {book_id}")
         elif author_present:
             author_id = author_present["id"]
     except psycopg2.Error as e:
